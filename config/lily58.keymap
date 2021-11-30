@@ -41,7 +41,7 @@
 &trans     &trans       &trans       &trans       &trans       &trans                       &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &trans    &kp PG_UP 
 &trans     &trans       &trans       &trans       &trans       &trans    &trans   &trans    &trans    &trans    &trans    &trans    &trans    &kp PG_DN
                         &trans       &trans       &trans       &kp ESC                      &kp DEL   &trans    &trans    &trans
-			>;S
+			>;
 
 			sensor-bindings = <&inc_dec_cp M_VOLU M_VOLD>;
 		};
