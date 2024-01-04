@@ -35,13 +35,13 @@
 // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   | HOME |       |       |  END |   =   |   -   |
 // |       |     |     |      |      |      |                   | LEFT | DOWN  |   UP  | RIGHT|       | PG_UP |
 // |       |     |     |      |      |      |        |  |       |      |       |       |      |       | PG_DN |
-//                     |      |      |      |   ESC  |  | DELETE|      |       |       |
+//                     | BTLD | RSTRT|      |   ESC  |  | DELETE|      | GAME  | RSTRT | BOOTLOADER
 			bindings = <
-&kp F1     &kp F2       &kp F3       &kp F4       &kp F5       &kp F6                       &kp F7    &kp F8    &kp F9    &kp F10   &kp F11   &kp F12
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                 &kp HOME  &trans    &trans    &kp END   &kp EQUAL &kp MINUS
-&trans     &trans       &trans       &trans       &trans       &trans                       &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT &trans    &kp PG_UP 
-&trans     &trans       &trans       &trans       &trans       &trans    &trans   &trans    &trans    &trans    &trans    &trans    &trans    &kp PG_DN
-                        &trans       &trans       &trans       &kp ESC                      &kp DEL   &trans    &trans    &trans
+&kp F1     &kp F2       &kp F3       &kp F4       &kp F5       &kp F6                       &kp F7    &kp F8    &kp F9     &kp F10   &kp F11   &kp F12
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                 &kp HOME  &trans    &trans     &kp END   &kp EQUAL &kp MINUS
+&trans     &trans       &trans       &trans       &trans       &trans                       &kp LEFT  &kp DOWN  &kp UP     &kp RIGHT &trans    &kp PG_UP 
+&trans     &trans       &trans       &trans       &trans       &trans    &trans   &trans    &trans    &trans    &trans     &trans    &trans    &kp PG_DN
+                        &bootloader  &sys_reset   &trans       &kp ESC                      &kp DEL   &to GAME  &sys_reset &bootloader
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -59,7 +59,7 @@
 &kp TAB  &kp T     &kp Q     &kp W     &kp E     &kp R                        &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
 &kp LCTL &kp G     &kp A     &kp S     &kp D     &kp F                        &kp H     &kp J     &kp K     &kp L     &kp SCLN  &kp QUOT
 &kp LSFT &kp B     &kp Z     &kp X     &kp C     &kp V   &kp G     &kp RBKT   &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  &kp RSFT
-                           &kp LALT  &kp LGUI  &mo LOWER &kp SPC   &kp SPC   &kp RET   &kp DEL   &kp RCTL
+                   &kp LALT  &kp LGUI  &to DEFAULT &kp SPC                      &kp SPC   &kp RET   &kp DEL   &kp RCTL
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
