@@ -16,7 +16,7 @@
             bindings = <&kp ESC>, <&kp TILDE>;
             mods = <(MOD_RSFT)>;
 			};
-	}
+	};
 
 	keymap {
 		compatible = "zmk,keymap";
