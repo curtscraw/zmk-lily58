@@ -5,17 +5,19 @@
 
 #define DEFAULT 0
 #define LOWER 1
-#define GAME 2
-#define SYSLYR 3
+#define SYSLYR 2
 
 / {
 
 	behaviors {
 		tlscp: tilde_escape {
-            #binding-cells = <0>;
-            bindings = <&kp ESC>, <&kp TILDE>;
-            mods = <(MOD_RSFT)>;
-			};
+			compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+		};
 	};
 
 	keymap {
@@ -44,32 +46,14 @@
 // |  F1   |  F2 |  F3 |  F4  |  F5  |  F6  |                   |  F7  |  F8   |  F9   |  F10 |  F11  |  F12  |
 // | BTCLR | BT1 | BT2 |  BT3 |  BT4 |  BT5 |                   | HOME |       |       |  END |   =   |   -   |
 // |       |     |     |      |      |      |                   | LEFT | DOWN  |   UP  | RIGHT|       | PG_UP |
-// |       |     |     |      |      |      |   `/~  |  |       |      |       |       |      |       | PG_DN |
-//                     |      |      |      |   ESC  |  | DELETE|      | GAME  | SYSLYR| 
+// |       |     |     |      |      |      |        |  |       |      |       |       |      |       | PG_DN |
+//                     |      |      |      |   ESC  |  | DELETE|      |       | SYSLYR| 
 			bindings = <
 &kp F1     &kp F2       &kp F3       &kp F4       &kp F5       &kp F6                          &kp F7    &kp F8    &kp F9     &kp F10   &kp F11   &kp F12
 &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4                    &kp HOME  &trans    &trans     &kp END   &kp EQUAL &kp MINUS
 &trans     &trans       &trans       &trans       &trans       &trans                          &kp LEFT  &kp DOWN  &kp UP     &kp RIGHT &trans    &kp PG_UP 
-&trans     &trans       &trans       &trans       &trans       &trans    &kp GRAVE   &trans    &trans    &trans    &trans     &trans    &trans    &kp PG_DN
-                        &trans       &trans       &trans       &kp ESC                         &kp DEL   &trans    &to GAME   &to SYSLYR
-			>;
-
-			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
-		};
-		
-		default_layer {
-// ------------------------------------------------------------------------------------------------------------
-// | ESC/~ |  1  |  2  |  3   |  4   |  5   |                   |  6   |  7    |  8    |  9   |   0   | BSPV  |
-// |  TAB  |  Q  |  W  |  E   |  R   |  T   |                   |  Y   |  U    |  I    |  O   |   P   |  "\"  |
-// |  CTRL |  A  |  S  |  D   |  F   |  G   |                   |  H   |  J    |  K    |  L   |   ;   |   "   |
-// | SHIFT |  Z  |  X  |  C   |  V   |  B   |   "["  |  |  "]"  |  N   |  M    |  ,    |  .   |   /   | SHIFT |
-//                     | ALT  | GUI  | SPC  |  SPACE |  | LOWER | RET  | DEL   | CTRL  |
-			bindings = <
-&kp ESC  &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                       &kp N6    &kp N7    &kp N8    &kp N9    &kp N0    &kp BKSP
-&kp TAB  &kp Q     &kp W     &kp E     &kp R     &kp T                        &kp Y     &kp U     &kp I     &kp O     &kp P     &kp BSLH
-&kp LCTL &kp A     &kp S     &kp D     &kp F     &kp G                        &kp H     &kp J     &kp K     &kp L     &kp SCLN  &kp QUOT
-&kp LSFT &kp Z     &kp X     &kp C     &kp V     &kp B   &kp LBKT  &kp RBKT   &kp N     &kp M     &kp CMMA  &kp DOT   &kp FSLH  &kp RSFT
-                   &kp LALT  &kp LGUI  &kp SPC   &kp SPC                    &mo LOWER   &kp RET   &kp DEL   &kp RCTL
+&trans     &trans       &trans       &trans       &trans       &trans    &trans      &trans    &trans    &trans    &trans     &trans    &trans    &kp PG_DN
+                        &trans       &trans       &trans       &kp ESC                         &kp DEL   &trans    &trans     &to SYSLYR
 			>;
 
 			sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
